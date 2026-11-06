@@ -2814,6 +2814,29 @@ svg { display: block; }
 
 /* ---------- responsive ---------- */
 
+@media (max-height: 1040px) {
+  .study-head { padding-top: 12px; padding-bottom: 4px; }
+  .study-stage { padding-top: 2px; padding-bottom: 14px; }
+  .study-card { min-height: 0; padding: 26px 30px 22px; border-radius: 26px; }
+  .study-card.quiz-card,
+  .study-card.self-check-card,
+  .study-card.no-example { min-height: 0; }
+  .word-hero { padding-top: 14px; }
+  .quiz-cn-hero { padding-top: 14px; }
+  .repeat-dashes { margin: 7px 0 9px; }
+  .quiz-prompt { margin: 13px 0 9px; }
+  .quiz-options { gap: 6px; }
+  .option { min-height: 46px; padding: 8px 12px; }
+  .quiz-skip-row { padding-top: 6px; }
+  .feedback { margin-top: 12px; padding-top: 12px; }
+  .feedback .example-block { margin-top: 8px; }
+  .feedback .example-en { font-size: 13px; }
+  .study-action-zone { padding-top: 10px; }
+  .grade-row { padding-top: 12px; }
+  .grade-btn { min-height: 44px; }
+  .study-next { margin-top: 10px; min-height: 46px; }
+}
+
 @media (min-width: 1180px) {
   .word-list {
     display: grid;

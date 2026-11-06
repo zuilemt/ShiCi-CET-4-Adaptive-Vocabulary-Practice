@@ -1968,6 +1968,16 @@
     }
   }
 
+  function revealStudyAction() {
+    requestAnimationFrame(function () {
+      const stage = document.getElementById("studyBody");
+      const action = document.getElementById("studyActionZone");
+      if (!stage || !action || !action.offsetHeight) return;
+      const overflow = action.getBoundingClientRect().bottom - (stage.getBoundingClientRect().bottom - 12);
+      if (overflow > 0) stage.scrollTop += overflow;
+    });
+  }
+
   function revealLearn() {
     if (!session || session.finished) return;
     const item = currentItem();
@@ -1983,6 +1993,7 @@
         '<button class="grade-btn" data-action="grade" data-grade="3"><b>有点印象</b><span>稍后再考</span></button>' +
         '<button class="grade-btn" data-action="grade" data-grade="5"><b>记住了</b><span>明天再见</span></button>' +
       "</div>";
+    revealStudyAction();
   }
 
   function randomQueueGap(min, max) {
@@ -2172,6 +2183,7 @@
         '<button class="self-choice is-yes" data-action="self-verify" data-correct="1">正确</button>' +
         '<button class="self-choice is-no" data-action="self-verify" data-correct="0">错误</button>';
     }
+    revealStudyAction();
   }
 
   function feedbackHTML(word, correct, ms) {
@@ -2276,6 +2288,7 @@
     }
     document.getElementById("studyActionZone").innerHTML =
       '<button class="study-next" data-action="next-item">' + (correct ? "继续" : "继续复习") + icon("arrow") + "</button>";
+    revealStudyAction();
 
     playTone(correct ? "correct" : "wrong");
     haptic(correct ? 12 : [12, 40, 12]);
@@ -2325,6 +2338,7 @@
     if (feedback) feedback.innerHTML = feedbackHTML(word, correct, ms);
     document.getElementById("studyActionZone").innerHTML =
       '<button class="study-next" data-action="next-item">' + (correct ? "继续" : "继续复习") + icon("arrow") + "</button>";
+    revealStudyAction();
 
     playTone(correct ? "correct" : "wrong");
     haptic(correct ? 12 : [12, 40, 12]);
